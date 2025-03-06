@@ -1,10 +1,12 @@
 import NewsFeed from "@/components/news/news-feed";
-import React from "react";
+import React, { Suspense } from "react";
 
 function HomeSection() {
   return (
     <div>
-      <NewsFeed />
+      <Suspense fallback={<div>Loading news...</div>}>
+        <NewsFeed />
+      </Suspense>
     </div>
   );
 }
