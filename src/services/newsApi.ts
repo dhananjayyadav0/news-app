@@ -1,7 +1,9 @@
 import axios from "axios";
 
-const NEWS_API_BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
-const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
+const NEWS_API_BASE_URL =
+  process.env.NEXT_PUBLIC_BASE_URL || "https://newsapi.org/v2";
+const API_KEY =
+  process.env.NEXT_PUBLIC_API_KEY || "54349ed1b4cd442b8605e82c16608a70";
 
 // Add caching mechanism
 const cache: Record<string, { data: any; timestamp: number }> = {};

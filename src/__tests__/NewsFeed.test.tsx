@@ -1,37 +1,38 @@
 // import { render, screen, fireEvent } from "@testing-library/react";
 // import NewsFeed from "@/components/news/news-feed";
 // import useNews from "@/components/hooks/useNews";
-// import { vi } from "vitest"; // If using Jest, use jest instead of vi
+// import { describe, it, expect, jest, beforeEach } from "@jest/globals";
+// import "@testing-library/jest-dom";
 
-// // Mock the custom hook
-// vi.mock("../hooks/useNews", () => ({
+// // Mock the useNews hook
+// jest.mock("@/components/hooks/useNews", () => ({
 //   __esModule: true,
-//   default: vi.fn(),
+//   default: jest.fn(() => ({
+//     articles: [
+//       {
+//         title: "Test News",
+//         description: "This is a test news description",
+//         url: "https://example.com",
+//         urlToImage: "https://via.placeholder.com/400",
+//         publishedAt: "2024-07-29T12:00:00Z",
+//       },
+//     ],
+//     loading: false,
+//     error: null,
+//     page: 1,
+//     totalResults: 10,
+//     category: "general",
+//     query: "",
+//     setPage: jest.fn(),
+//     setCategory: jest.fn(),
+//     setQuery: jest.fn(),
+//     fetchNews: jest.fn(),
+//   })),
 // }));
 
 // describe("NewsFeed Component", () => {
 //   beforeEach(() => {
-//     useNews.mockReturnValue({
-//       articles: [
-//         {
-//           title: "Test News",
-//           description: "This is a test news description",
-//           url: "https://example.com",
-//           urlToImage: "https://via.placeholder.com/400",
-//           publishedAt: "2024-07-29T12:00:00Z",
-//         },
-//       ],
-//       loading: false,
-//       error: null,
-//       page: 1,
-//       totalResults: 10,
-//       category: "general",
-//       query: "",
-//       setPage: vi.fn(),
-//       setCategory: vi.fn(),
-//       setQuery: vi.fn(),
-//       fetchNews: vi.fn(),
-//     });
+//     jest.clearAllMocks();
 //   });
 
 //   it("renders news articles correctly", () => {
