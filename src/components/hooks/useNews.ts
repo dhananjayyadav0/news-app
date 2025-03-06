@@ -2,7 +2,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { newsService, Article } from "@/services/newsApi";
 import { useRouter, useSearchParams } from "next/navigation";
-
 const useNews = () => {
   const [articles, setArticles] = useState<Article[]>([]);
   const [loading, setLoading] = useState(false);
@@ -11,10 +10,12 @@ const useNews = () => {
   const [page, setPage] = useState(1);
   const [totalResults, setTotalResults] = useState(0);
   const [error, setError] = useState<string | null>(null);
-
   const router = useRouter();
-  const searchParams = useSearchParams() || new URLSearchParams();
+  const [searchParams, setSearchParamsState] = useState(new URLSearchParams());
 
+  useEffect(() => {
+    setSearchParamsState(new URLSearchParams(window.location.search));
+  }, []);
   // Memoize the fetchNews function
   const fetchNews = useCallback(async () => {
     try {
